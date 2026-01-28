@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BioPatch — Needle-free weekly health monitoring</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Tailwind config overrides (light touches) */
+    :root { --accent: #0f6fff; --muted: #6b7280; }
+    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <header class="fixed w-full z-40 bg-white/60 backdrop-blur-sm border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3"> 
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-sky-400 to-indigo-600 flex items-center justify-center shadow-md">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-white">
+            <rect x="4" y="4" width="16" height="16" rx="3" fill="white" opacity="0.08"></rect>
+            <path d="M7 12c0-2.761 2.238-5 5-5s5 2.239 5 5-2.238 5-5 5-5-2.239-5-5z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <span class="font-semibold text-lg">BioPatch</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-700">
+        <a href="#home" class="hover:text-gray-900">Home</a>
+        <a href="#about" class="hover:text-gray-900">About</a>
+        <a href="#how" class="hover:text-gray-900">How It Works</a>
+        <a href="#patch" class="hover:text-gray-900">The Patch</a>
+        <a href="#app" class="hover:text-gray-900">App</a>
+        <a href="#contact" class="hover:text-gray-900">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-3">
+        <button id="cta-trial" class="px-4 py-2 bg-white border border-slate-200 rounded-md shadow-sm text-sm hover:shadow-lg">Request Demo</button>
+        <a href="#" class="text-sm px-3 py-2 bg-gradient-to-r from-sky-500 to-indigo-600 text-white rounded-md shadow">Buy Now</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-btn" class="md:hidden p-2 rounded-md"> 
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="#374151" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="home" class="pt-28">
+    <section class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <!-- Left: headline -->
+      <div class="py-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Needle‑free weekly health monitoring.</h1>
+        <p class="mt-4 text-lg text-gray-600">BioPatch is a painless, single-use weekly patch that monitors core vitals and syncs securely to your phone. Actionable insights, weekly reports, and medical-grade trends — without the needle.</p>
+
+        <div class="mt-8 flex gap-4">
+          <a href="#how" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow hover:scale-[1.02] transition">Explore how it works</a>
+          <button id="try-proto" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg border border-slate-200 bg-white hover:shadow">Try Prototype</button>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-4 text-sm text-gray-600">
+          <div class="flex flex-col">
+            <span class="font-semibold text-gray-800">Painless</span>
+            <span class="text-xs">No needles — attach and go</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-gray-800">Weekly Reports</span>
+            <span class="text-xs">Clear trends & insights</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-semibold text-gray-800">Secure</span>
+            <span class="text-xs">End-to-end encrypted</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: product image -->
+      <div class="flex justify-center md:justify-end">
+        <div class="w-96 h-96 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-slate-100 bg-white">
+          <img src="https://assets.iflscience.com/assets/articleNo/70704/aImg/70699/cgm-o.webp" alt="patch on arm" class="object-cover w-full h-full">
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="mt-24 bg-white py-12">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl font-bold">About BioPatch</h2>
+          <p class="mt-4 text-gray-600">BioPatch builds simple, trustworthy tools to help people stay ahead of their health. Our weekly patch reads multiple biomarkers non-invasively and pairs with a mobile app to give clear, personalized recommendations. We design for privacy, accessibility, and clinical reliability.</p>
+
+          <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700">
+            <li class="flex items-start gap-3"><span class="font-semibold">Medical-grade</span> validated sensors and algorithms</li>
+            <li class="flex items-start gap-3"><span class="font-semibold">Simple</span> apply once a week, painless</li>
+            <li class="flex items-start gap-3"><span class="font-semibold">Private</span> data encryption & opt-in sharing</li>
+            <li class="flex items-start gap-3"><span class="font-semibold">Designed</span> for everyday users — athletes, seniors, and busy people</li>
+          </ul>
+        </div>
+
+        <div class="flex justify-center">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&s=abcd" alt="team meeting" class="rounded-xl shadow">
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="max-w-6xl mx-auto px-6 py-16">
+      <h3 class="text-2xl font-bold text-center">How it works</h3>
+      <p class="text-center text-gray-600 mt-2">Four simple steps from skin to insights</p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 bg-white rounded-xl shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto rounded-full glass flex items-center justify-center mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#0f6fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><rect x="4" y="10" width="16" height="10" rx="2" stroke="#0f6fff" stroke-width="1.6"></rect></svg>
+          </div>
+          <h4 class="font-semibold">Apply the patch</h4>
+          <p class="mt-2 text-sm text-gray-500">Stick it on — thin, breathable adhesive.</p>
+        </div>
+
+        <div class="p-6 bg-white rounded-xl shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto rounded-full glass flex items-center justify-center mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#0f6fff" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          </div>
+          <h4 class="font-semibold">Automatic scan</h4>
+          <p class="mt-2 text-sm text-gray-500">Sensors capture biometrics during daily activity.</p>
+        </div>
+
+        <div class="p-6 bg-white rounded-xl shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto rounded-full glass flex items-center justify-center mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M7 12h10" stroke="#0f6fff" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          </div>
+          <h4 class="font-semibold">Instant App Sync</h4>
+          <p class="mt-2 text-sm text-gray-500">Bluetooth syncs secure data to your phone.</p>
+        </div>
+
+        <div class="p-6 bg-white rounded-xl shadow-sm text-center">
+          <div class="w-16 h-16 mx-auto rounded-full glass flex items-center justify-center mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 17h16" stroke="#0f6fff" stroke-width="1.6" stroke-linecap="round"></path></svg>
+          </div>
+          <h4 class="font-semibold">Weekly insights</h4>
+          <p class="mt-2 text-sm text-gray-500">Weekly reports with trends and personalized tips.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patch details -->
+    <section id="patch" class="bg-gradient-to-b from-white to-gray-50 py-16">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h3 class="text-2xl font-bold">The BioPatch</h3>
+          <p class="mt-4 text-gray-600">Ultra-thin, flexible patch with discreet sensors. Designed for comfort and one-week wear. Biocompatible adhesive keeps it stable during daily life.</p>
+
+          <ul class="mt-6 text-sm text-gray-700 space-y-2">
+            <li>• Measures: heart rate variability, skin temperature, hydration proxy, motion/activity</li>
+            <li>• Battery: week-long passive operation</li>
+            <li>• Materials: breathable polymer, hypoallergenic adhesive</li>
+            <li>• Disposal: single-use recyclable sleeve</li>
+          </ul>
+
+          <div class="mt-8 flex gap-4">
+            <a href="#app" class="px-4 py-2 rounded-lg bg-white border shadow">See app</a>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white">Get early access</a>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8GT6aLjsElFQbNOUOAyZy4WkJKJx3eG1_LA&s" alt="patch close-up" class="rounded-xl shadow-xl w-full max-w-md">
+        </div>
+      </div>
+    </section>
+
+    <!-- App mockup -->
+    <section id="app" class="max-w-6xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h3 class="text-2xl font-bold">BioPatch App</h3>
+          <p class="mt-4 text-gray-600">A clean dashboard that highlights trends, offers weekly recommendations, and lets you export reports to share with clinicians. Simple privacy controls and exportable PDF reports.</p>
+
+          <ul class="mt-6 space-y-3 text-sm text-gray-700">
+            <li>• Live vitals dashboard</li>
+            <li>• Weekly summary & suggestions</li>
+            <li>• Secure cloud backup & encrypted sharing</li>
+            <li>• Exportable report for clinicians</li>
+          </ul>
+
+          <div class="mt-6 flex gap-4">
+            <a href="#" class="px-4 py-2 rounded-lg border">Download (coming soon)</a>
+            <a href="#contact" class="px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white">Join Beta</a>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <!-- simple phone mockup -->
+          <div class="w-64 h-128 rounded-3xl shadow-2xl overflow-hidden border border-gray-200 bg-white">
+            <div class="p-4">
+              <div class="h-72">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=phone" alt="app dashboard" class="object-cover w-full h-full">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / CTA -->
+    <section class="max-w-4xl mx-auto px-6 py-12 text-center">
+      <div class="bg-white p-8 rounded-2xl shadow">
+        <h3 class="text-xl font-bold">Early Access — BioPatch Starter Pack</h3>
+        <p class="mt-2 text-gray-600">Includes the Bio-Patch + 3 months of premium app features.</p>
+        <div class="mt-6 flex items-center justify-center gap-6">
+          <div class="text-3xl font-extrabold">**** AED</div>
+          <a href="#contact" class="px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white">Get Early Access</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-16">
+      <h3 class="text-2xl font-bold text-center">Contact & Early Access</h3>
+      <p class="text-center text-gray-600 mt-2">Want to try the BioPatch or work with us? Drop your email and we'll get back to you.</p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-8 items-start">
+        <form id="contact-form" class="space-y-4 bg-white p-6 rounded-xl shadow">
+          <div>
+            <label class="text-sm font-medium">Full name</label>
+            <input type="text" id="name" class="mt-1 w-full border rounded-md px-3 py-2" placeholder="Your name" required>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Email</label>
+            <input type="email" id="email" class="mt-1 w-full border rounded-md px-3 py-2" placeholder="you@example.com" required>
+          </div>
+          <div>
+            <label class="text-sm font-medium">Message</label>
+            <textarea id="message" rows="4" class="mt-1 w-full border rounded-md px-3 py-2" placeholder="I'm interested in beta access..." required></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button type="submit" class="px-5 py-3 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white">Send</button>
+          </div>
+        </form>
+
+        <div class="bg-white p-6 rounded-xl shadow text-sm text-gray-700">
+          <h4 class="font-semibold">Office</h4>
+          <p class="mt-2">Dubai Freezone<br/>Dubai, UAE</p>
+          <p class="mt-4">Email: Ayham.saffaf@outlook.com</p>
+          <p class="mt-1">Phone: +971 50 323 8900</p>
+
+          <div class="mt-6">
+            <strong>Follow</strong>
+            <div class="mt-3 flex gap-3">
+              <a href="#" class="text-sm px-3 py-2 rounded bg-gray-100">Twitter</a>
+              <a href="#" class="text-sm px-3 py-2 rounded bg-gray-100">LinkedIn</a>
+              <a href="#" class="text-sm px-3 py-2 rounded bg-gray-100">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-12 py-8 border-t bg-white">
+      <div class="max-w-6xl mx-auto px-6 flex items-center justify-between text-sm text-gray-500">
+        <div>© 2025 BioPatch Inc.</div>
+        <div>Designed by Ayham Saffaf</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Prototype modal -->
+  <div id="modal" class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-2xl p-6 w-11/12 max-w-xl shadow-xl">
+      <div class="flex justify-between items-start">
+        <h4 class="text-lg font-bold">Prototype Request</h4>
+        <button id="modal-close" class="text-gray-400">✕</button>
+      </div>
+      <p class="mt-2 text-sm text-gray-600">Enter your email and we'll send a link to a product prototype (demo view).</p>
+
+      <form id="modal-form" class="mt-4 space-y-3">
+        <input type="email" id="modal-email" class="w-full border rounded-md px-3 py-2" placeholder="Ayham.saffaf@outlook.com" required>
+        <div class="flex justify-end">
+          <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-sky-500 to-indigo-600 text-white">Request Demo</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+      });
+    });
+
+    // Modal logic
+    const modal = document.getElementById('modal');
+    document.getElementById('try-proto').addEventListener('click', ()=> modal.classList.remove('hidden'));
+    document.getElementById('cta-trial').addEventListener('click', ()=> modal.classList.remove('hidden'));
+    document.getElementById('modal-close').addEventListener('click', ()=> modal.classList.add('hidden'));
+    document.getElementById('modal-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const em = document.getElementById('modal-email').value;
+      alert('Demo request received — we\'ll email: '+em);
+      modal.classList.add('hidden');
+      document.getElementById('modal-form').reset();
+    });
+
+    // Contact form (fake submit)
+    document.getElementById('contact-form').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      alert('Thanks '+name+' — we will reach out at '+email);
+      e.target.reset();
+      // In a real site: send to backend endpoint via fetch()
+    });
+
+    // Mobile menu (basic)
+    const mobileBtn = document.getElementById('mobile-btn');
+    let mobileOpen = false;
+    mobileBtn.addEventListener('click', ()=>{
+      mobileOpen = !mobileOpen;
+      if(mobileOpen){
+        const nav = document.createElement('div');
+        nav.id = 'mobile-nav';
+        nav.className = 'fixed inset-0 bg-white p-6 z-50';
+        nav.innerHTML = `
+          <div class=\"flex items-center justify-between\"> 
+            <div class=\"font-bold text-lg\">BioPatch</div>
+            <button id=\"close-mob\">✕</button>
+          </div>
+          <nav class=\"mt-6 flex flex-col gap-4\"> <a href=\"#home\">Home</a> <a href=\"#about\">About</a> <a href=\"#how\">How It Works</a> <a href=\"#patch\">The Patch</a> <a href=\"#app\">App</a> <a href=\"#contact\">Contact</a> </nav>
+        `;
+        document.body.appendChild(nav);
+        document.getElementById('close-mob').addEventListener('click', ()=>{ document.getElementById('mobile-nav').remove(); mobileOpen=false; });
+      } else {
+        document.getElementById('mobile-nav')?.remove();
+      }
+    });
+  </script>
+</body>
+</html>
